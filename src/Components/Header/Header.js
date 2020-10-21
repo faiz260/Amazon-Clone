@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../Context/StateProvider";
 import { auth } from "../../Firebase/firebase";
+import Checkout from '../Checkout/Checkout';
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -59,6 +60,7 @@ function Header() {
             <span className="header_optionLineTwo header_basketCount">
               {basket?.length}
             </span>
+            {/* <Checkout/> */}
           </div>
         </Link>
       </div>
