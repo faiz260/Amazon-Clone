@@ -6,7 +6,7 @@ import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 
 function Checkout() {
   const [{ basket, user }, dispatch] = useStateValue();
-  console.log("User",user)
+  console.log("User", user);
 
   return (
     <div className="checkout">
@@ -18,24 +18,29 @@ function Checkout() {
         />
         <div>
           <h3>Hello, {user.email}</h3>
-          <h2 className="checkout_title">Your Shopping Basket</h2>
-          {
-              basket.map(item => (
-                  <CheckoutProduct
-                    id={item.id}
-                    title={item.title}
-                    image={item.image}
-                    price={item.price}
-                    rating={item.rating}
-                  />
-              ))
-          }
+          {basket?.length === 0 ? (
+            <div>
+              <h2>Your Shopping basket is empty</h2>
+            </div>
+          ) : (
+            <div>
+              <h2 className="checkout_title">Your Shopping Basket</h2>
+
+              {basket.map((item) => (
+                <CheckoutProduct
+                  id={item.id}
+                  title={item.title}
+                  image={item.image}
+                  price={item.price}
+                  rating={item.rating}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
-          
-          <div className="checkout_right">
-            <Subtotal/>
-          </div>
+
+      <div className="checkout_right">{/* <Subtotal/> */}</div>
     </div>
   );
 }

@@ -29,10 +29,11 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
                 <p>🌟</p>
               ))}
           </div>
-        </div>
-        {!hideButton &&(
-        <button onClick={removeFromBasket}>Add to basket</button>
+          {!hideButton &&(
+        <button onClick={removeFromBasket}>Remove from basket</button>
         )}
+        </div>
+
       </div>
     </div>
   );
