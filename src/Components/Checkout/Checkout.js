@@ -40,7 +40,10 @@ function Checkout() {
         </div>
       </div>
 
-      <div className="checkout_right">{/* <Subtotal/> */}</div>
+      {basket.length > 0 && (
+        <div className="checkout_right"> 
+        <Subtotal/></div>
+      )}
     </div>
   );
 }
