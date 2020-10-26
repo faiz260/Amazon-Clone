@@ -9,11 +9,11 @@ import { useStateValue } from "./Context/StateProvider";
 import Checkout from "./Components/Checkout/Checkout";
 
 function App() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      console.log("THE USER IS >>>> ", authUser);
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      // console.log("THE USER IS >>>> ", authUser);
 
       if (authUser) {
         dispatch({
@@ -27,8 +27,13 @@ function App() {
         });
       }
     });
-  }, []);
 
+    return () => {
+      unsubscribe()
+    }
+ 
+  }, []);
+  console.log("THE USER IS >>>> ", user);
   return (
     <div className="App">
       <Router>
