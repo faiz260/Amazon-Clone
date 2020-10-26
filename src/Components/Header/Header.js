@@ -31,7 +31,7 @@ function Header() {
       </div>
 
       <div className="header_nav">
-        <Link to={!user && "/login"}>
+        <Link to={!user && "/login"} className="header_link">
           <div onClick={handleAuthentication} className="header_options">
             <span className="header_optionLineOne">
               Hello {!user ? "Guest" : user.email}
@@ -42,7 +42,7 @@ function Header() {
           </div>
         </Link>
 
-        <Link to="/orders">
+        <Link to="/orders" className="header_link">
           <div className="header_options">
             <span className="header_optionLineOne">Returns</span>
             <span className="header_optionLineTwo">& Orders</span>
@@ -54,7 +54,7 @@ function Header() {
           <span className="header_optionLineTwo">Prime</span>
         </div>
 
-        <Link to="/checkout">
+        <Link to="/checkout" className="header_link">
           <div className="header_optionBasket">
             <ShoppingCartIcon className="shopping_cartIcon" />
             <span className="header_optionLineTwo header_basketCount">

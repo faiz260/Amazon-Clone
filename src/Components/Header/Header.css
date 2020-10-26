@@ -7,6 +7,9 @@
     top: 0;
     z-index: 100;
 }
+.header_link{
+    text-decoration: none;
+}
 .header_logo{
     width: 100px;
     object-fit: contain;
